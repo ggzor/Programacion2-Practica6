@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "Practica6",
+                "projectName": "Practica6",
+                "workingDirectory": "/home/ggzor/Documents/Universidad/ProgramacionII/Practicas/Practica6",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "Practica6",
+                "projectName": "Practica6",
+                "workingDirectory": "/home/ggzor/Documents/Universidad/ProgramacionII/Practicas/Practica6",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
