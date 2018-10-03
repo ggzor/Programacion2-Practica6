@@ -36,6 +36,13 @@ public class AnalizadorTests {
   }
 
   @Test
+  public void filtrarCaracteres_deberiaResgresar() {
+    Analizador analizador = analizadorSoloEntrada("");
+
+    assertEquals("", analizador.filtrarCaracteres());
+  }  
+  
+  @Test
   public void contarOraciones_deberiaRegresar0_cuandoCadenaVacia() {
     Analizador analizador = analizadorSoloEntrada("");
 
@@ -47,5 +54,10 @@ public class AnalizadorTests {
     Analizador analizador = analizadorSoloEntrada("Cadena");
 
     assertEquals(0, analizador.contarOraciones());
+  }
+
+  @Test
+  public void contarOraciones_deberiaRegresar0_cuandoCadenaContieneUnPunto_Y_LaCadenaNoContieneEspacios() {
+    Analizador analizador = analizadorSoloEntrada()
   }
 }
