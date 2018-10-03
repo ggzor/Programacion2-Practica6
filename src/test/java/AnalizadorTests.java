@@ -1,29 +1,41 @@
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 public class AnalizadorTests {
+  private Analizador analizadorSoloEntrada(String entrada) {
+    return new Analizador(entrada, "&%&&%&/##&");
+  }
 
   @Test
-  public void analizar_deberiaRegresarResultado_cuandoParametrosSon() {
-    String entrada = "";
-    String busqueda = "Paquetito";
-    Analizador analizador = new Analizador();
+  public void contarLineas_deberiaRegresar0_cuandoCadenaVacia() {
+    Analizador analizador = analizadorSoloEntrada("");
 
-    Resultado resultado = analizador.analizar(entrada, busqueda);
+    assertEquals(0, analizador.contarLineas());
+  }
 
-    Resultado esperado = new Resultado(
-      0, // Numero lineas
-      "", // Filtrado
-      0, // Oraciones
-      0, // Cantidad coincidencias
-      new int[0] // Numeros encontrados
-    );
+  @Test
+  public void contarLineas_deberiaRegresar1_cuandoCadenaNoContieneSaltosLinea_Y_noEsVacia() {
+    Analizador analizador = analizadorSoloEntrada("Cadena");
 
-    assertEquals(esperado.getNumeroLineas(), resultado.getNumeroLineas());
-    assertEquals(esperado.getFiltrado(), resultado.getFiltrado());
-    assertEquals(esperado.getNumeroOraciones(), resultado.getNumeroOraciones());
-    assertEquals(esperado.getCantidadCoincidencias(), resultado.getCantidadCoincidencias());
-    assertArrayEquals(esperado.getNumerosEncontrados(), resultado.getNumerosEncontrados());
+    assertEquals(1, analizador.contarLineas());
+  }
+
+  @Test
+  public void contarLineas_deberiaRegresar3_cuandoCadenaTiene2SaltosDeLinea() {
+    Analizador analizador = analizadorSoloEntrada("CadenaA\nCadenaB\nCadenaC");
+
+    assertEquals(3, analizador.contarLineas());
+  }
+
+  @Test
+  public void filtrarCaracteres_deberiaResgresar(){
+    Analizador analizador = analizadorSoloEntrada("CadenaA cadenaB\n cadenaC");
+
+    assertArrayEquals("CadenaA cadenaB\n cadenaC",analizador.filtrarCaracteres());        
+  }
+
+  @Test
+  public void contarOraciones_deberiaRegresar0_cuandoCadenaVacia() {
+    
   }
 }
