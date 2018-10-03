@@ -1,3 +1,4 @@
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
@@ -28,14 +29,23 @@ public class AnalizadorTests {
   }
 
   @Test
-  public void filtrarCaracteres_deberiaResgresar(){
+  public void filtrarCaracteres_deberiaResgresar() {
     Analizador analizador = analizadorSoloEntrada("CadenaA cadenaB\n cadenaC");
 
-    assertArrayEquals("CadenaA cadenaB\n cadenaC",analizador.filtrarCaracteres());        
+    assertEquals("CadenaA cadenaB\n cadenaC", analizador.filtrarCaracteres());
   }
 
   @Test
   public void contarOraciones_deberiaRegresar0_cuandoCadenaVacia() {
-    
+    Analizador analizador = analizadorSoloEntrada("");
+
+    assertEquals(0, analizador.contarOraciones());
+  }
+
+  @Test
+  public void contarOraciones_deberiaRegresar0_cuandoCadenaNoContienePuntos() {
+    Analizador analizador = analizadorSoloEntrada("Cadena");
+
+    assertEquals(0, analizador.contarOraciones());
   }
 }

@@ -22,5 +22,11 @@ public class Analizador {
     return contador;
   }
 
-  public String filtrarCaracteres()
+  public String filtrarCaracteres(){
+    return entrada;
+  }
+
+  public int contarOraciones() {
+    return 0;
+  }
 }
