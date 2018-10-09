@@ -30,6 +30,7 @@ public class AnalizadorTests {
     assertEquals(3, analizador.contarLineas());
   } 
 
+  /*
   @ParameterizedTest(name = "\"{1}\" debería filtrarse resultado en \"{0}\".")
   @CsvSource(value={
     "'',''", 
@@ -42,6 +43,7 @@ public class AnalizadorTests {
 
     assertEquals(esperado, analizador.filtrarCaracteres());
   }   
+  */
   
   @ParameterizedTest(name="\"{1}\" debería tener {0} oraciones.")
   @CsvSource(value={
