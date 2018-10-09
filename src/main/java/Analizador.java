@@ -57,7 +57,7 @@ public class Analizador {
 
         // Comparar caracteres uno a uno hasta encontrar 
         for (int j = 1; j < busqueda.length() && i + j < entrada.length() && esValido; j++) {
-          if(busqueda.charAt(j) != busqueda.charAt(i + j)) {
+          if(busqueda.charAt(j) != entrada.charAt(i + j)) {
             esValido = false;
           }
 
