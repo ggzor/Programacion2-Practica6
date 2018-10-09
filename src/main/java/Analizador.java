@@ -20,13 +20,16 @@ public class Analizador {
     return contador;
   }
 
-/*   public String filtrarCaracteres() {
-    String nuevaCadena;
-    for (int i = 0; i < entrada.length; i++) {
+   public String filtrarCaracteres() {
+    String nuevaCadena = "";
+    for (int i = 0; i < entrada.length(); i++) {
+      char valor = entrada.charAt(i);
+      /*if('a' <= valor && valor <= 'z'|| 'A' <= valor && valor <= 'Z'|| " " == valor){
+        nuevaCadena += valor;
+      }*/
     }
-    if(entrada.charAt(i) >=<= )
-    return entrada;
-  } */
+    return nuevaCadena;
+  } 
 
   public int contarOraciones() {
     String valores[] = entrada.split("\\.");
@@ -34,13 +37,36 @@ public class Analizador {
     int contador = 0;
     for (int i = 0; i < valores.length; i++) {
       if (valores[i].contains(" ")) {
-        if (i + 1 < valores.length) {
+        if (i + 1 < valores.length)
           contador += 1;
-        } else {
-          if (entrada.endsWith(".")) {
-            contador += 1;
+        else if (entrada.endsWith("."))
+          contador += 1;
+      }
+    }
+
+    return contador;
+  }
+
+  public int contarCoincidencias() {
+    int contador = 0;
+    for (int i = 0; i < entrada.length(); i++) {
+      // Buscar el primer caracter de la busqueda
+      if(entrada.charAt(i) == busqueda.charAt(0)) {
+        boolean llegoAlFinal = false;
+        boolean esValido = true;
+
+        // Comparar caracteres uno a uno hasta encontrar 
+        for (int j = 1; j < busqueda.length() && i + j < entrada.length() && esValido; j++) {
+          if(busqueda.charAt(j) != busqueda.charAt(i + j)) {
+            esValido = false;
           }
+
+          if(j + 1 == busqueda.length())
+            llegoAlFinal = true;
         }
+
+        if(esValido && llegoAlFinal)
+          contador += 1;
       }
     }
 
