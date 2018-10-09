@@ -24,11 +24,15 @@ public class Analizador {
     String nuevaCadena = "";
     for (int i = 0; i < entrada.length(); i++) {
       char valor = entrada.charAt(i);
-      //boolean esAcento = valor == 225 || valor == 233 || valor == 237 || valor == 243 || valor == 250;
-      //boolean esExclamacion = valor == '!' || valor == '¡';
-      //boolean esInterrogacion = valor == '¿' || valor == '?' ;
+      boolean esAcento = valor == 'á' || valor == 'é' || valor == 'í' || valor == 'ó' || valor == 'ú';
+      boolean esExclamacion = valor == '!' || valor == '¡';
+      boolean esInterrogacion = valor == '¿' || valor == '?' ;
       boolean esPuntuacion = valor == ';'|| valor == ':' || valor == '.' || valor == ',';
-      if('a' <= valor && valor <= 'z'|| 'A' <= valor && valor <= 'Z'|| 32 == valor || 48 <= valor && valor <= 57|| esPuntuacion == true){
+      boolean esMinuscula = 'a' <= valor && valor <= 'z';
+      boolean esMayuscula = 'A' <= valor && valor <= 'Z';
+      boolean esNumero = '0' <= valor && valor <= '9';
+      if (esMinuscula || esMayuscula || valor == ' ' || esNumero || esPuntuacion
+          || esAcento || esExclamacion || esInterrogacion) {
         nuevaCadena += valor;
       }
     }

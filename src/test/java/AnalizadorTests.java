@@ -30,7 +30,6 @@ public class AnalizadorTests {
     assertEquals(3, analizador.contarLineas());
   } 
 
-  /*
   @ParameterizedTest(name = "\"{1}\" debería filtrarse resultado en \"{0}\".")
   @CsvSource(value={
     "'',''", 
@@ -38,17 +37,16 @@ public class AnalizadorTests {
     "cadena,cadena",  
     "'cadena ','cadena '",
     "0123456789,0123456789",
-    "',.;:',',.;:'"
-    //"'¿cadena?','¿cadena?'",
-    //"'¡cadena!','¡cadena!'",
-    //"'áéíóú', 'áéíóú'"
+    "',.;:',',.;:'",
+    "'¿cadena?','¿cadena?'",
+    "'¡cadena!','¡cadena!'",
+    "'áéíóú', 'áéíóú'"
   }) 
   public void filtrarCaracteres_deberiaRegresar__cuandoCadenaEs__(String esperado, String cadena) {
     Analizador analizador = analizadorSoloEntrada(cadena);
 
     assertEquals(esperado, analizador.filtrarCaracteres());
   }   
-  */
   
   @ParameterizedTest(name="\"{1}\" debería tener {0} oraciones.")
   @CsvSource(value={
@@ -71,7 +69,6 @@ public class AnalizadorTests {
     assertEquals(esperado, analizador.contarOraciones());
   }
 
-  /*  
   @ParameterizedTest(name="\"{1}\" debería tener {0} ocurrencias de \"{2}\"")
   @CsvSource(value={
     "0,'',sol",
@@ -87,5 +84,4 @@ public class AnalizadorTests {
 
     assertEquals(esperado, analizador.contarCoincidencias());
   }
-  */
 }
