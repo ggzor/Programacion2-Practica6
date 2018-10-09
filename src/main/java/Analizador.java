@@ -24,9 +24,17 @@ public class Analizador {
     String nuevaCadena = "";
     for (int i = 0; i < entrada.length(); i++) {
       char valor = entrada.charAt(i);
-      /*if('a' <= valor && valor <= 'z'|| 'A' <= valor && valor <= 'Z'|| " " == valor){
+      boolean esAcento = valor == 'á' || valor == 'é' || valor == 'í' || valor == 'ó' || valor == 'ú';
+      boolean esExclamacion = valor == '!' || valor == '¡';
+      boolean esInterrogacion = valor == '¿' || valor == '?' ;
+      boolean esPuntuacion = valor == ';'|| valor == ':' || valor == '.' || valor == ',';
+      boolean esMinuscula = 'a' <= valor && valor <= 'z';
+      boolean esMayuscula = 'A' <= valor && valor <= 'Z';
+      boolean esNumero = '0' <= valor && valor <= '9';
+      if (esMinuscula || esMayuscula || valor == ' ' || esNumero || esPuntuacion
+          || esAcento || esExclamacion || esInterrogacion) {
         nuevaCadena += valor;
-      }*/
+      }
     }
     return nuevaCadena;
   } 
