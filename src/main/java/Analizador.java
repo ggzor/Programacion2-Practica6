@@ -21,7 +21,7 @@ public class Analizador {
   }
 
    public String filtrarCaracteres() {
-    String nuevaCadena = "";
+    StringBuilder nuevaCadena = new StringBuilder();
     for (int i = 0; i < entrada.length(); i++) {
       char valor = entrada.charAt(i);
       boolean esAcento = valor == 'á' || valor == 'é' || valor == 'í' || valor == 'ó' || valor == 'ú';
@@ -31,12 +31,12 @@ public class Analizador {
       boolean esMinuscula = 'a' <= valor && valor <= 'z';
       boolean esMayuscula = 'A' <= valor && valor <= 'Z';
       boolean esNumero = '0' <= valor && valor <= '9';
-      if (esMinuscula || esMayuscula || valor == ' ' || esNumero || esPuntuacion 
+      if (esMinuscula || esMayuscula || valor == ' ' || valor == '\n'|| esNumero || esPuntuacion 
          || esAcento || esExclamacion || esInterrogacion) {
-        nuevaCadena += valor;
+        nuevaCadena.append(valor);
       }
     }
-    return nuevaCadena;
+    return nuevaCadena.toString();
   } 
 
   public int contarOraciones() {
@@ -79,5 +79,9 @@ public class Analizador {
     }
 
     return contador;
+  }
+  
+  public int [] encontrarEnteros(){
+   return entrada;
   }
 }
