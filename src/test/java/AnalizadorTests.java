@@ -78,7 +78,11 @@ public class AnalizadorTests {
     "1,Solsol,sol",
     "1,12.34,2.3",
     "2,solsol,sol",
-    "5,111111,11"
+    "5,111111,11",
+    "0,son,sol",
+    "1,solso,sol",
+    "0,so,sol",
+    "0,x,s"
   })
   public void contarCoincidencias_deberiaRegresar__cuandoCadenaEs__(int esperado, String cadena, String busqueda) {
     Analizador analizador = new Analizador(cadena, busqueda);
