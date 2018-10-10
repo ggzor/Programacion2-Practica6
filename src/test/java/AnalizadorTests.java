@@ -40,7 +40,8 @@ public class AnalizadorTests {
     "',.;:',',.;:'",
     "'¿cadena?','¿cadena?'",
     "'¡cadena!','¡cadena!'",
-    "'áéíóú', 'áéíóú'"
+    "'áéíóú', 'áéíóú'",
+    "'CADENA', 'CADENA'"
   }) 
   public void filtrarCaracteres_deberiaRegresar__cuandoCadenaEs__(String esperado, String cadena) {
     Analizador analizador = analizadorSoloEntrada(cadena);
