@@ -7,6 +7,14 @@ public class Analizador {
     this.busqueda = busqueda;
   }
 
+  public String getEntrada() {
+    return entrada;
+  }
+
+  public String getBusqueda() {
+    return busqueda;
+  }
+
   public int contarLineas() {
     if (entrada.equals(""))
       return 0;
