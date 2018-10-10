@@ -31,8 +31,8 @@ public class Analizador {
       boolean esMinuscula = 'a' <= valor && valor <= 'z';
       boolean esMayuscula = 'A' <= valor && valor <= 'Z';
       boolean esNumero = '0' <= valor && valor <= '9';
-      if (esMinuscula || esMayuscula || valor == ' ' || esNumero || esPuntuacion
-          || esAcento || esExclamacion || esInterrogacion) {
+      if (esMinuscula || esMayuscula || valor == ' ' || esNumero || esPuntuacion 
+         || esAcento || esExclamacion || esInterrogacion) {
         nuevaCadena += valor;
       }
     }
