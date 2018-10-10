@@ -89,7 +89,7 @@ public class Analizador {
     return contador;
   }
   
-  public int [] encontrarEnteros(){
+/*   public int [] encontrarEnteros(){
    return entrada;
-  }
+  } */
 }
