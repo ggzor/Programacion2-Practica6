@@ -89,4 +89,11 @@ public class AnalizadorTests {
 
     assertEquals(esperado, analizador.contarCoincidencias());
   }
+
+  @Test
+  public void encontrarEnteros_deberiaRegresarArregloVacio_cuandoEsCadenaVacia() {
+    Analizador analizador = analizadorSoloEntrada(new int [] {} );
+
+    assertEquals(new int [] {}, analizador.encontrarEnteros());
+  }
 }

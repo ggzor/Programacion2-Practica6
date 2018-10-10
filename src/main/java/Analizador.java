@@ -80,4 +80,8 @@ public class Analizador {
 
     return contador;
   }
+
+  public int [] encontrarEnteros(){
+   return entrada;
+  }
 }
