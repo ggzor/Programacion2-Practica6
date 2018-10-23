@@ -1,3 +1,5 @@
+import java.util.Vector;
+
 public class Analizador {
   private String entrada;
   private String busqueda;
@@ -89,7 +91,44 @@ public class Analizador {
     return contador;
   }
   
-/*   public int [] encontrarEnteros(){
-   return entrada;
-  } */
+  public int[] encontrarEnteros() {
+    if (entrada.equals("")) {
+      return new int[] {};
+    } else {
+      Vector<Integer> resultado = new Vector<Integer>();
+      boolean construyendo = false;
+      int numeroActual = 0;
+
+      for (int i = 0; i < entrada.length(); i++) {
+        char valor = entrada.charAt(i);
+        if ('0' <= valor && valor <= '9') {
+          if (!construyendo) {
+            numeroActual = 0;
+            construyendo = true;
+          }
+          numeroActual *= 10; // Recorrer el número
+          numeroActual += valor - '0'; // Convertir caracter numérico a su correspondiente número.
+        } else {
+          if (construyendo) {
+            resultado.add(numeroActual);
+            construyendo = false;
+          }
+        }
+      }
+
+      if (construyendo) {
+        resultado.add(numeroActual);
+        construyendo = false;
+      }
+
+      int arreglo[] = new int[resultado.size()];
+
+      // Copiar el vector al arreglo
+      for (int i = 0; i < resultado.size(); i++) {
+        arreglo[i] = resultado.elementAt(i);
+      }
+
+      return arreglo;
+    }
+  }
 }

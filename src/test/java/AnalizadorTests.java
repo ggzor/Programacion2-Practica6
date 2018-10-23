@@ -1,8 +1,10 @@
-
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class AnalizadorTests {
   private Analizador analizadorSoloEntrada(String entrada) {
@@ -91,10 +93,24 @@ public class AnalizadorTests {
     assertEquals(esperado, analizador.contarCoincidencias());
   }
 
-/*   @Test
-  public void encontrarEnteros_deberiaRegresarArregloVacio_cuandoEsCadenaVacia() {
-    Analizador analizador = analizadorSoloEntrada(new int [] {} );
+  @ParameterizedTest(name="\"{1}\" deberia tener los enteros {0}")
+  @MethodSource("encontrarEnterosPruebas")
+  public void encontrarEnteros_deberiaRegresar___cuandoCadenaEs__(int esperados[], String cadena) {
+    Analizador analizador = analizadorSoloEntrada(cadena);
 
-    assertEquals(new int [] {}, analizador.encontrarEnteros());
-  } */
+    assertArrayEquals(esperados, analizador.encontrarEnteros());
+  }
+
+  static Arguments[] encontrarEnterosPruebas() {
+    return new Arguments[] {
+      Arguments.of(new int[] { }, ""),
+      Arguments.of(new int[] { 1 }, "1"),
+      Arguments.of(new int[] { 2 }, "2"),
+      Arguments.of(new int[] { 1, 2 }, "1, 2"),
+      Arguments.of(new int[] { 733223 }, "733223"),
+      Arguments.of(new int[] { 12, 334 }, "12sadsd, asdas334"),
+      Arguments.of(new int[] { 0 }, "0000"),
+      Arguments.of(new int[] { 300 }, "00300"),
+    };
+  }
 }
