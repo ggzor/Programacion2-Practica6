@@ -52,16 +52,17 @@ public class AnalizadorTests {
   @ParameterizedTest(name="\"{1}\" debería tener {0} oraciones.")
   @CsvSource(value={
     "0,''",
-    "0, .",
+    "0,'.'",
     "0,Cadena",
     "0,Cadena.",
     "0,.Cadena1",
     "0,Cadena1.Cadena2.",
+    "1,' .'",
     "1,Cadena1 .",
     "1,Cadena1 Cadena2.",
     "1,Cadena1 Cadena2. Cadena3",
-    "2,Cadena1 .Cadena2 .",
     "1,Cadena1 Cadena2 Cadena3.",
+    "2,Cadena1 .Cadena2 .",
     "3,'Cadena1, Cadena2 Cadena3. Cadena1 Cadena2 Cadena3. Cadena1.'"
   })
   public void contarOraciones_deberiaRegresar__cuandoCadenaEs__(int esperado, String cadena) {
