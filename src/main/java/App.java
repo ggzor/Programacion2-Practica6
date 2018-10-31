@@ -36,8 +36,17 @@ public class App {
 
           System.out.println(Colores.enAzulNegritas(analizador.contarCoincidencias()));
           
-          // TODO: Mostrar enteros
-          
+          System.out.print(Colores.enNegritas("Enteros encontrados: "));
+          int enteros[] = analizador.encontrarEnteros();
+          System.out.print(Colores.enNegritas("["));
+          for (int i = 0; i < enteros.length; i++) {
+            System.out.print(Colores.enAzulNegritas(enteros[i]));
+            if (i + 1 < enteros.length) {
+              System.out.print(", ");
+            }
+          }
+          System.out.println(Colores.enNegritas("]"));
+
           String textoFiltrado = analizador.filtrarCaracteres();
           FileOutputStream archivoSalida = new FileOutputStream(salida);
           archivoSalida.write(textoFiltrado.getBytes());

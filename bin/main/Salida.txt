@@ -1,0 +1,134 @@
+import java.util.Vector;
+
+public class Analizador 
+  private String entrada;
+  private String busqueda;
+
+  public AnalizadorString entrada, String busqueda 
+    this.entrada  entrada;
+    this.busqueda  busqueda;
+  
+
+  public String getEntrada 
+    return entrada;
+  
+
+  public String getBusqueda 
+    return busqueda;
+  
+
+  public int contarLineas 
+    if entrada.equals
+      return 0;
+
+    int contador  1;
+    for int i  0; i  entrada.length; i 
+      if entrada.charAti  n 
+        contador;
+      
+    
+    return contador;
+  
+
+   public String filtrarCaracteres 
+    StringBuilder nuevaCadena  new StringBuilder;
+    for int i  0; i  entrada.length; i 
+      char valor  entrada.charAti;
+      boolean esAcento  valor  á  valor  é  valor  í  valor  ó  valor  ú;
+      boolean esExclamacion  valor  !  valor  ¡;
+      boolean esInterrogacion  valor  ¿  valor  ? ;
+      boolean esPuntuacion  valor  ; valor  :  valor  .  valor  ,;
+      boolean esMinuscula  a  valor  valor  z;
+      boolean esMayuscula  A  valor  valor  Z;
+      boolean esNumero  0  valor  valor  9;
+      if esMinuscula  esMayuscula  valor     valor  n esNumero  esPuntuacion 
+          esAcento  esExclamacion  esInterrogacion 
+        nuevaCadena.appendvalor;
+      
+    
+    return nuevaCadena.toString;
+   
+
+  public int contarOraciones 
+    String valores  entrada.split.;
+
+    int contador  0;
+    for int i  0; i  valores.length; i 
+      if valoresi.contains  
+        if i  1  valores.length
+          contador  1;
+        else if entrada.endsWith.
+          contador  1;
+      
+    
+
+    return contador;
+  
+
+  public int contarCoincidencias 
+    int contador  0;
+    for int i  0; i  entrada.length; i 
+       Buscar el primer caracter de la busqueda
+      ifentrada.charAti  busqueda.charAt0 
+        boolean llegoAlFinal  false;
+        boolean esValido  true;
+
+         Comparar caracteres uno a uno hasta encontrar 
+        for int j  1; j  busqueda.length  i  j  entrada.length  esValido; j 
+          ifbusqueda.charAtj ! entrada.charAti  j 
+            esValido  false;
+          
+
+          ifj  1  busqueda.length
+            llegoAlFinal  true;
+        
+
+        ifesValido  llegoAlFinal
+          contador  1;
+      
+    
+
+    return contador;
+  
+  
+  public int encontrarEnteros 
+    if entrada.equals 
+      return new int ;
+     else 
+      VectorInteger resultado  new VectorInteger;
+      boolean construyendo  false;
+      int numeroActual  0;
+
+      for int i  0; i  entrada.length; i 
+        char valor  entrada.charAti;
+        if 0  valor  valor  9 
+          if !construyendo 
+            numeroActual  0;
+            construyendo  true;
+          
+          numeroActual  10;  Recorrer el número
+          numeroActual  valor  0;  Convertir caracter numérico a su correspondiente número.
+         else 
+          if construyendo 
+            resultado.addnumeroActual;
+            construyendo  false;
+          
+        
+      
+
+      if construyendo 
+        resultado.addnumeroActual;
+        construyendo  false;
+      
+
+      int arreglo  new intresultado.size;
+
+       Copiar el vector al arreglo
+      for int i  0; i  resultado.size; i 
+        arregloi  resultado.elementAti;
+      
+
+      return arreglo;
+    
+  
+
